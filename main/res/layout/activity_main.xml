@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp">
+
+        <TextView
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingTop="30dp"
+            android:paddingRight="20dp"
+            android:text="0"
+            android:textSize="30dp"
+            android:tooltipText="4356765787">
+        </TextView>
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:text="2 * 2"
+            android:textSize="20dp">
+        </TextView>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="25dp"
+        android:background="@color/purple_500">
+
+        <TableRow
+            android:layout_weight="1">
+            <Button
+                android:text="%"
+                android:layout_height="match_parent"
+                style="@style/keypad"
+                android:id="@+id/clear"
+                >
+            </Button>
+            <Button
+                android:text="x^2"
+                style="@style/keypad"
+                android:id="@+id/clr1"
+                >
+            </Button>
+            <Button
+                android:text="C"
+                style="@style/keypad"
+                android:id="@+id/clr2"
+                >
+            </Button>
+            <ImageButton
+                style="@style/keypad"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:background="@color/purple_500"
+                android:src="@drawable/baseline_backspace_white_24"
+                android:id="@+id/bcsp"
+                android:onClick="bcsp"
+                >
+
+            </ImageButton>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1">
+            <Button
+                android:text="7"
+                style="@style/keypad"
+                android:id="@+id/seven"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="8"
+                style="@style/keypad"
+                android:id="@+id/eight"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="9"
+                style="@style/keypad"
+                android:id="@+id/nine"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="÷"
+                style="@style/keypad"
+                android:id="@+id/division"
+                >
+            </Button>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1">
+            <Button
+                android:text="4"
+                style="@style/keypad"
+                android:id="@+id/four"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="5"
+                style="@style/keypad"
+                android:id="@+id/five"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="6"
+                style="@style/keypad"
+                android:id="@+id/six"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="X"
+                style="@style/keypad"
+                android:id="@+id/times"
+                >
+            </Button>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1">
+            <Button
+                android:text="1"
+                style="@style/keypad"
+                android:id="@+id/one"
+                android:onClick="ShowText" >
+            </Button>
+            <Button
+                android:text="2"
+                style="@style/keypad"
+                android:id="@+id/two"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="3"
+                style="@style/keypad"
+                android:id="@+id/three"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="+"
+                style="@style/keypad"
+                android:id="@+id/plus"
+                >
+            </Button>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1">
+            <Button
+                android:text="+/-"
+                style="@style/keypad"
+
+                >
+            </Button>
+            <Button
+                android:text="0"
+                style="@style/keypad"
+                android:id="@+id/zero"
+                android:onClick="ShowText"
+                >
+            </Button>
+            <Button
+                android:text="."
+                style="@style/keypad"
+                android:id="@+id/point"
+
+                >
+            </Button>
+            <Button
+                android:text="="
+                style="@style/keypad"
+
+                >
+            </Button>
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>
