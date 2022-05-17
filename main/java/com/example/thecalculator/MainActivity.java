@@ -1,7 +1,8 @@
 package com.example.thecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.*;
+
+import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.Button;
@@ -16,9 +17,15 @@ public class MainActivity extends AppCompatActivity {
     Button clr2;
     Button plus;
     Button division;
-    String currText = " ";
+    Button times;
+    Button minus;
+    String currText = "";
+    String operate = "";
+    Button equal;
+    float num1;
+    float num2;
+    String first = "yes";
 
-public String string;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,25 +37,88 @@ public String string;
         clr2 = (Button)findViewById(R.id.clr2);
         plus = (Button)findViewById(R.id.plus);
         division = (Button)findViewById(R.id.division);
+        times = (Button)findViewById(R.id.times);
+        minus = (Button)findViewById(R.id.minus);
+        equal = (Button)findViewById(R.id.equal);
     }
 
     public void ShowText(View view) {
         Button button = (Button)view;
         String buttonText = button.getText().toString();
-        currText = input.getText().toString();
-        input.setText(currText+buttonText);
+        if (input.getText() == "0") {
+            input.setText(buttonText);
+            input.setText(currText);
 
+        } else {
+            input.setText(currText+buttonText);
+        }
+        currText = input.getText().toString();
     }
+
     public void bcsp(View view) {
         currText = input.getText().toString();
         if ((currText != null) && (currText.length() > 0)) {
             input.setText(currText.substring(0, currText.length() - 1));
+            currText = input.getText().toString();
         }
-
     }
+
+    public void plus(View view) {
+        num1 = Float.parseFloat(currText); // difficult
+        operate = "+";
+        input.setText("");
+        answer.setText(num1+" +");
+    }
+    public void division(View view) {
+        num1 = Float.parseFloat(currText);
+        operate = "/";
+        input.setText("");
+        answer.setText(num1+" ÷");
+    }
+    public void minus(View view) {
+        num1 = Float.parseFloat(currText);
+        operate = "-";
+        input.setText("");
+        answer.setText(num1+" -");
+    }
+    public void times(View view) {
+        num1 = Float.parseFloat(currText);
+        operate = "*";
+        input.setText("");
+        answer.setText(num1+" x");
+    }
+
+    public void equal(View view) {
+        if (operate=="+") {
+            num2 = Float.parseFloat(input.getText().toString());
+            input.setText(num1+num2+"");
+        } else if (operate=="-") {
+            num2 = Float.parseFloat(input.getText().toString());
+            input.setText(num1-num2+"");
+        }
+        else if (operate=="/") {
+            num2 = Float.parseFloat(input.getText().toString());
+            input.setText(num1/num2+"");
+        }
+        else if (operate=="*") {
+            num2 = Float.parseFloat(input.getText().toString());
+            input.setText(num1*num2+"");
+        } else {
+            input.setText("whaat?");
+        }
+        currText = input.getText().toString();
+        input.setText(currText);
+        answer.setText(currText);
+    }
+
+    public void clear(View view) {
+        num1 = 0;
+        num2 = 0;
+    }
+
 
 }
 
-// show the plus / minus signs when clicked, and the equal sign evaluates
+// if it can be reduced to
 // split the function 123 + 456 = to (string1) (operator) (string 2)
 // shrink the text to fit the view
